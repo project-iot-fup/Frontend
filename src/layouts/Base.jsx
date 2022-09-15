@@ -1,0 +1,34 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Header
+import Header from '../components/Header';
+
+// Footer
+import Footer from '../components/Footer';
+
+import HomePage from '../pages/HomePage';
+
+import NotFoundPage from '../pages/NotFoundPage';
+
+function Base() {
+  return (
+    <main className="bg-white dark:bg-zinc-800">
+      <Router>
+        <Header />
+        <div className="container mx-auto lg:px-0 px-4 pt-8 lg:pt-10">
+          {/* {location === '/' ? <Back /> : null} */}
+        </div>
+        <Routes>
+          {/* home */}
+          <Route path="/" element={<HomePage />} />
+          {/* not found */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </main>
+  );
+}
+
+export default Base;
