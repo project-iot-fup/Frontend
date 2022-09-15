@@ -4,10 +4,10 @@
 
 #### Dispositivos 💻
 
-- [x] Raspberry Pi 3 
-- [x] Arduino UNO 
-- [ ] Tarjeta RFID 
-- [ ] Sensor o Modulo MFRC-522 
+- [x] Raspberry Pi 3
+- [x] Arduino UNO
+- [ ] Tarjeta RFID
+- [ ] Sensor o Modulo MFRC-522
 
 #### Tecnologias 🔌
 
@@ -24,6 +24,7 @@
 - [x] Formik
 
 ### Instalación 🔧
+
 #### Importante Tener instalado Python y NodeJs 📣
 
 #### **Backend** 📦
@@ -45,6 +46,7 @@ $ pip install -r requirements.txt
 # Correr proyecto
 $ python manage.py runserver
 ```
+
 #### **Frontend** 📦
 
 ```bash
@@ -72,4 +74,5 @@ $ Manuel Esteban Erazo
 $ Jose Domingo Aranda Calambas
 $ Jhon Leon
 ```
+
 ---
