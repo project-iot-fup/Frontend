@@ -27,30 +27,12 @@
 
 #### Importante Tener instalado Python y NodeJs 📣
 
-#### **Backend** 📦
-
-```bash
-# Clonar el repositorio
-$ git clone https://github.com/Manuekle/iot_asistencia.git
-$ cd iot_asistencia
-# Instalar el entorno virtual
-$ pip install virtualenv
-$ python -m virtualenv env
-# Activar el entorno virtual en Linux
-$ source env/bin/activate
-# Activar el entorno virtual en Windows
-$ env\Scripts\activate
-# Instalar las dependencias
-$ cd backend
-$ pip install -r requirements.txt
-# Correr proyecto
-$ python manage.py runserver
-```
-
 #### **Frontend** 📦
 
 ```bash
-$ cd frontend
+# Clonar el repositorio
+$ git clone https://github.com/project-iot-fup/Frontend
+$ cd Frontend
 # Instalar las dependencias
 $ npm install
 # Correr proyecto
