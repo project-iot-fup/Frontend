@@ -6,8 +6,7 @@
     "extends": [
         "plugin:react/recommended",
         "airbnb",
-        "plugin:jsx-a11y/recommended",
-        "prettier"
+        "plugin:jsx-a11y/recommended"
     ],
     "overrides": [],
     "parserOptions": {
@@ -19,10 +18,9 @@
     },
     "plugins": [
         "react",
-        "prettier"
+        "jsx-a11y"
     ],
     "rules": {
-        "prettier/prettier": "error",
         "react/jsx-filename-extension": [
             1,
             {
