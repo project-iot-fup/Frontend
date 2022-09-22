@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Classroom from '../pages/Classroom';
 
 // Header
 // import Header from '../components/Header';
@@ -24,6 +25,8 @@ function Base() {
           <Route path="/" element={<HomePage />} />
           {/* not found */}
           <Route path="*" element={<NotFoundPage />} />
+          {/* classroom */}
+          <Route path="/classroom" element={<Classroom />} />
         </Routes>
         {/* <Footer /> */}
       </Router>

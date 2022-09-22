@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable comma-dangle */
 /* eslint-disable operator-linebreak */
 import React from 'react';
@@ -10,7 +12,7 @@ function HomePage() {
   return (
     <div className="bg-zinc-900 scroll-smooth">
       <section
-        className="pt-20 bg-[#F3F0D7] relative w-full overflow-hidden"
+        className="pt-40 bg-[#F3F0D7] relative w-full overflow-hidden"
         style={{
           clipPath: 'polygon(25% 0%, 100% 0, 100% 95%, 0 100%, 0 100%, 0 0)'
         }}
@@ -18,7 +20,7 @@ function HomePage() {
         <div className="pb-52 grid grid-cols-2 container mx-auto lg:px-32 px-8 lg:gap-0 gap-28">
           <div className="flex flex-col lg:col-span-1 col-span-2 gap-4">
             <h1 className="lg:text-5xl text-3xl font-bold">
-              No te preocupes
+              Olvidate
               <br />
               por tener que llamar a lista, te tenemos la solucion!
             </h1>
@@ -38,7 +40,7 @@ function HomePage() {
             <div className="flex flex-row gap-6">
               <button
                 type="button"
-                className="bg-black text-white py-3 rounded-md font-bold px-5 lg:text-sm text-xs"
+                className="shadow-zinc-900/50 shadow-lg bg-black text-white py-3 rounded-md font-bold px-5 lg:text-sm text-xs"
               >
                 Comenzar Ahora!
               </button>
@@ -93,6 +95,7 @@ function HomePage() {
       <section>
         <Tickets />
       </section>
+      <section className="pt-40"></section>
     </div>
   );
 }

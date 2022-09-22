@@ -1,10 +1,14 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable comma-dangle */
+/* eslint-disable react/self-closing-comp */
 import React from 'react';
+// import Notification from '../assets/icons/notification';
 
 import Card from './Card';
 
 function Tickets() {
   return (
-    <section className="w-full max-w-5xl pb-40 mx-auto pt-20">
+    <section className="w-full max-w-5xl pb-20 mx-auto pt-20">
       <div className="container mx-auto">
         <div className="flex justify-center">
           <div className="flex flex-col gap-8">
@@ -12,14 +16,13 @@ function Tickets() {
               Entra a clase!
             </h1>
             <h1 className="mt-2 text-xl text-center font-bold text-white opacity-85">
-              Consigue tu entrada para poder asistir a la clase y no te
-              preocupes por tener que llamar a lista.
+              Consigue tu tarjeta RFID y comienza a asistir a tus clases.
             </h1>
             <button
               type="button"
-              className="bg-slate-50 py-4 w-44 rounded-md font-bold text-slate-900 mx-auto"
+              className="shadow-slate-50/50 shadow-md bg-slate-50 py-4 w-44 rounded-md font-bold text-slate-900 mx-auto"
             >
-              <h1 className="font-bold">Registrate gratis</h1>
+              <h1 className="font-bold">Consiguelo ahora!</h1>
             </button>
           </div>
         </div>
