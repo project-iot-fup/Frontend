@@ -1,6 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Classroom from '../pages/Classroom';
+// auth
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 // Header
 // import Header from '../components/Header';
@@ -27,6 +31,9 @@ function Base() {
           <Route path="*" element={<NotFoundPage />} />
           {/* classroom */}
           <Route path="/classroom" element={<Classroom />} />
+          {/* auth */}
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/register" element={<Register />} />
         </Routes>
         {/* <Footer /> */}
       </Router>
