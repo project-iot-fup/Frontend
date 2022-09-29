@@ -14,7 +14,7 @@ function HomePage() {
       <section
         className="pt-40 bg-[#F3F0D7] relative w-full overflow-hidden"
         style={{
-          clipPath: 'polygon(25% 0%, 100% 0, 100% 95%, 0 100%, 0 100%, 0 0)'
+          clipPath: 'polygon(25% 0%, 100% 0, 100% 95%, 0 100%, 0 100%, 0 0)',
         }}
       >
         <div className="pb-52 grid grid-cols-2 container mx-auto lg:px-32 px-8 lg:gap-0 gap-28">

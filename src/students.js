@@ -1,4 +1,4 @@
-const estudents = [
+const students = [
   {
     id: 1,
     nombre: 'Jonathan',
@@ -14,4 +14,4 @@ const estudents = [
   },
 ];
 
-export default estudents;
+export default students;
