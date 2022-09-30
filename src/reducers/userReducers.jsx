@@ -1,11 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable default-param-last */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable no-case-declarations */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/button-has-type */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-unused-vars */
 import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,

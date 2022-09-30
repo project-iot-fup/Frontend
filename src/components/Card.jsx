@@ -1,7 +1,3 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable no-unused-vars */
-/* eslint-disable comma-dangle */
-/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 

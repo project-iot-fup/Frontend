@@ -1,5 +1,3 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 
 function Register() {

@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable comma-dangle */
-/* eslint-disable react/self-closing-comp */
 import React from 'react';
 // import Notification from '../assets/icons/notification';
 

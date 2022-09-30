@@ -1,7 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable comma-dangle */
-/* eslint-disable operator-linebreak */
 import React from 'react';
 
 import Tickets from '../components/Tickets';
