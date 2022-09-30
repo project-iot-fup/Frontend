@@ -91,7 +91,7 @@ function HomePage() {
       <section>
         <Tickets />
       </section>
-      <section className="pt-40"></section>
+      <section className="pt-40" />
     </div>
   );
 }

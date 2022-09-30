@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
