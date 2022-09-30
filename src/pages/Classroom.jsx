@@ -1,8 +1,8 @@
 import React from 'react';
 
-import User from '../assets/icons/user';
-import Chart from '../assets/icons/chart';
-import Report from '../assets/icons/report';
+// import User from '../assets/icons/user';
+// import Chart from '../assets/icons/chart';
+// import Report from '../assets/icons/report';
 
 function Classroom() {
   const date = new Date();
@@ -52,7 +52,7 @@ function Classroom() {
               </tbody>
             </table>
           </div>
-          <div className="grid grid-cols-1 gap-8 pt-6">
+          {/* <div className="grid grid-cols-1 gap-8 pt-6">
             <div className="p-2 flex flex-row gap-12 items-center justify-center">
               <button
                 className="border-none"
@@ -82,7 +82,7 @@ function Classroom() {
                 <Report className="w-8 h-8 fill-zinc-600" />
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

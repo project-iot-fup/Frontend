@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Classroom from '../pages/Classroom';
 // auth
-import Login from '../pages/Login';
-import Register from '../pages/Register';
+import Login from '../pages/LoginPage';
+import Register from '../pages/RegisterPage';
 
 // Header
 // import Header from '../components/Header';
