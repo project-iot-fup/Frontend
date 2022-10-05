@@ -1,16 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Classroom from '../pages/Classroom';
+import Classroom from './Classroom';
 // auth
 import Login from '../pages/LoginPage';
 import Register from '../pages/RegisterPage';
-
-// Header
-// import Header from '../components/Header';
-
-// Footer
-// import Footer from '../components/Footer';
 
 import HomePage from '../pages/HomePage';
 
@@ -30,7 +24,7 @@ function Base() {
           {/* not found */}
           <Route path="*" element={<NotFoundPage />} />
           {/* classroom */}
-          <Route path="/classroom" element={<Classroom />} />
+          <Route path="/classroom/*" element={<Classroom />} />
           {/* auth */}
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />
