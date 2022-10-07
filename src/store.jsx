@@ -12,7 +12,21 @@ import {
   userUpdateReducer
 } from './reducers/userReducers';
 
+import {
+  estudianteListReducer,
+  estudianteDetailsReducer,
+  estudianteCreateReducer,
+  estudianteUpdateReducer,
+  estudianteDeleteReducer
+} from './reducers/estudianteReducers';
+
 const reducer = combineReducers({
+  estudianteList: estudianteListReducer,
+  estudianteCreate: estudianteCreateReducer,
+  estudianteDetails: estudianteDetailsReducer,
+  estudianteUpdate: estudianteUpdateReducer,
+  estudianteDelete: estudianteDeleteReducer,
+
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,

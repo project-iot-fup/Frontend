@@ -4,7 +4,8 @@ import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import Report from '../pages/ReportPage';
+import ClassroomReportPage from '../pages/Classroom/ClassroomReportPage';
+import ClassroomHomePage from '../pages/Classroom/ClassroomHomePage';
 
 function Classroom() {
   const navigate = useNavigate();
@@ -23,7 +24,8 @@ function Classroom() {
         <div className="bg-zinc-900 w-[900px] rounded-b-lg">s</div>
       </div>
       <Routes>
-        <Route index element={<Report />} />
+        <Route index element={<ClassroomHomePage />} />
+        <Route element={<ClassroomReportPage />} />
       </Routes>
     </main>
   );

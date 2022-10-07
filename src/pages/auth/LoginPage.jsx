@@ -8,11 +8,11 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { login } from '../actions/userActions';
+import { login } from '../../actions/userActions';
 
-import Email from '../assets/svg/email';
-import Password from '../assets/svg/password';
-import Loader from '../assets/svg/loader';
+import Email from '../../assets/svg/email';
+import Password from '../../assets/svg/password';
+import Loader from '../../assets/svg/loader';
 
 function LoginPage() {
   const [formData, setFormData] = useState(false);

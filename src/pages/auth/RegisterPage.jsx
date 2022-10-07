@@ -8,12 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 
-import User from '../assets/svg/user';
-import Email from '../assets/svg/email';
-import Password from '../assets/svg/password';
-import Loader from '../assets/svg/loader';
+import User from '../../assets/svg/user';
+import Email from '../../assets/svg/email';
+import Password from '../../assets/svg/password';
+import Loader from '../../assets/svg/loader';
 
-import { register } from '../actions/userActions';
+import { register } from '../../actions/userActions';
 
 function RegisterPage() {
   const dispatch = useDispatch();
