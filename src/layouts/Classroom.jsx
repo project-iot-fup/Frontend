@@ -6,6 +6,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ClassroomReportPage from '../pages/Classroom/ClassroomReportPage';
 import ClassroomHomePage from '../pages/Classroom/ClassroomHomePage';
+import ClassroomEditPage from '../pages/Classroom/ClassroomEditPage';
+import ClassroomListPage from '../pages/Classroom/ClassroomListPage';
 
 function Classroom() {
   const navigate = useNavigate();
@@ -25,7 +27,9 @@ function Classroom() {
       </div>
       <Routes>
         <Route index element={<ClassroomHomePage />} />
-        <Route element={<ClassroomReportPage />} />
+        <Route path="/report" element={<ClassroomReportPage />} />
+        <Route path="/edit/:id" element={<ClassroomEditPage />} />
+        <Route path="/list" element={<ClassroomListPage />} />
       </Routes>
     </main>
   );

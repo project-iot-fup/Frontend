@@ -47,15 +47,15 @@ export const estudianteListReducer = (state = { estudiantes: [] }, action) => {
 };
 
 export const estudianteDetailsReducer = (
-  state = { estudiante: { reviews: [] } },
+  state = { estudiante: { estudiante: {} } },
   action
 ) => {
   switch (action.type) {
     case ESTUDIANTE_DETAILS_REQUEST:
-      return { loading: true, ...state };
+      return { ...state, loading: true };
 
     case ESTUDIANTE_DETAILS_SUCCESS:
-      return { loading: false, product: action.payload };
+      return { loading: false, estudiante: action.payload };
 
     case ESTUDIANTE_DETAILS_FAIL:
       return { loading: false, error: action.payload };
