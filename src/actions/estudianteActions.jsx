@@ -114,7 +114,7 @@ export const updateEstudiante = (estudiante) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/products/update/${estudiante._id}/`,
+      `/api/estudiantes/update/${estudiante._id}/`,
       estudiante,
       config
     );
