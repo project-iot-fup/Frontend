@@ -77,8 +77,6 @@ function ClassroomRegisterPage() {
     }
   }, [dispatch, estudiante, params, successUpdate, navigate]);
 
-  console.log(estudiante);
-
   return (
     <>
       {loading ? (
