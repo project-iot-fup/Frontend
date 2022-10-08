@@ -7,6 +7,7 @@ import Login from '../pages/auth/LoginPage';
 import Register from '../pages/auth/RegisterPage';
 
 import HomePage from '../pages/HomePage';
+import TestPage from '../pages/TestPage';
 
 import NotFoundPage from '../pages/NotFoundPage';
 
@@ -19,6 +20,7 @@ function Base() {
           <Route path="/" element={<HomePage />} />
           {/* not found */}
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="/test" element={<TestPage />} />
           {/* classroom */}
           <Route path="/classroom/*" element={<Classroom />} />
           {/* auth */}

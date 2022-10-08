@@ -19,6 +19,9 @@ import {
 import { ESTUDIANTE_UPDATE_RESET } from '../../constants/estudianteConstants';
 
 import Loader from '../../assets/svg/loader';
+import User from '../../assets/svg/user';
+import Book from '../../assets/svg/book';
+import Badge from '../../assets/svg/badge';
 import Add from '../../assets/svg/add';
 import Remove from '../../assets/svg/remove';
 
@@ -28,6 +31,7 @@ function ClassroomRegisterPage() {
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [materias, setMaterias] = useState();
+  const [cedula, setCedula] = useState('');
 
   const dispatch = useDispatch();
 
@@ -74,6 +78,7 @@ function ClassroomRegisterPage() {
       setNombre(estudiante.nombre);
       setApellido(estudiante.apellido);
       setMaterias(estudiante.materias);
+      setCedula(estudiante.cedula);
     }
   }, [dispatch, estudiante, params, successUpdate, navigate]);
 
@@ -81,65 +86,91 @@ function ClassroomRegisterPage() {
     <>
       {loading ? (
         <div className="grid place-items-center h-96">
-          <Loader
-            width="200px"
-            height="200px"
-            className="fill-black dark:fill-white"
-          />
+          <Loader width="200px" height="200px" className="fill-black " />
         </div>
       ) : error ? (
         <div className="grid place-items-center h-auto my-8 lg:my-44">
           <h1>{error}</h1>
         </div>
       ) : (
-        <form onSubmit={submitHandler}>
-          <label className="text-white text-sm font-bold uppercase tracking-widest">
-            Nombre:
-          </label>
-          <input
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            placeholder="Nombre del producto"
-            className="outline-none font-bold relative text-black placeholder-zinc-400 dark:placeholder-zinc-400 dark:text-white bg-zinc-200 dark:bg-zinc-800 rounded-md py-3 pl-4 w-full"
-          />
-          <label className="text-white text-sm font-bold uppercase tracking-widest">
-            Apellido:
-          </label>
-          <input
-            type="text"
-            value={apellido}
-            onChange={(e) => setApellido(e.target.value)}
-            placeholder="Nombre del producto"
-            className="outline-none font-bold relative text-black placeholder-zinc-400 dark:placeholder-zinc-400 dark:text-white bg-zinc-200 dark:bg-zinc-800 rounded-md py-3 pl-4 w-full"
-          />
-          <label className="text-white text-sm font-bold uppercase tracking-widest">
-            Materias:
-          </label>
-          <select
-            value={materias}
-            onChange={(e) => setMaterias(e.target.value)}
-            className="outline-none font-bold relative text-black placeholder-zinc-400 dark:placeholder-zinc-400 dark:text-white bg-zinc-200 dark:bg-zinc-800 rounded-md py-3 pl-4 w-full"
-          >
-            <option disabled value="0">
-              Seleccione una materia
-            </option>
-            <option value="Creditos Libres II">Creditos Libres II</option>
-          </select>
-          <span className="col-span-3 grid place-items-center pt-2 justify-center">
-            <button
-              type="submit"
-              className="bg-zinc-300 dark:bg-[#F0E9D2] w-full rounded-lg px-24"
-            >
-              {!formData && (
-                <h1 className="text-black dark:text-black text-md font-bold py-4">
-                  Actualizar Estudiante
-                </h1>
-              )}
-              {formData && <Loader className="fill-white dark:fill-black" />}
-            </button>
-          </span>
-        </form>
+        <div className="flex justify-center items-center h-screen">
+          <div className="bg-zinc-900 rounded-lg w-[700px] h-[700px] p-6 shadow-lg shadow-zinc-900">
+            <h1 className="text-5xl pt-12 pb-8 font-black text-center text-white leading-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-100">
+              Editar Estudiante
+            </h1>
+            <form onSubmit={submitHandler}>
+              <div className="h-[400px] flex justify-center flex-col gap-4 items-center w-[650px]">
+                <span className="w-[400px] relative">
+                  <input
+                    type="text"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    placeholder="Nombres del Estudiante"
+                    className="outline-none relative w-full h-full py-4 pl-14 rounded-lg bg-zinc-800 text-white"
+                  />
+                  <span>
+                    <User className="absolute top-[26px] left-4 transform -translate-y-1/2 fill-zinc-400 " />
+                  </span>
+                </span>
+                <span className="w-[400px] relative">
+                  <input
+                    type="text"
+                    value={apellido}
+                    onChange={(e) => setApellido(e.target.value)}
+                    placeholder="Apellidos del Estudiante"
+                    className="outline-none relative w-full h-full py-4 pl-14 rounded-lg bg-zinc-800 text-white"
+                  />
+                  <span>
+                    <User className="absolute top-[26px] left-4 transform -translate-y-1/2 fill-zinc-400 " />
+                  </span>
+                </span>
+                <span className="w-[400px] relative">
+                  <input
+                    type="text"
+                    disabled
+                    value={cedula}
+                    onChange={(e) => setCedula(e.target.value)}
+                    placeholder="Apellidos del Estudiante"
+                    className="outline-none relative w-full h-full py-4 pl-14 rounded-lg bg-zinc-800 disabled:text-zinc-400"
+                  />
+                  <span>
+                    <Badge className="absolute top-[26px] left-4 transform -translate-y-1/2 fill-zinc-400 " />
+                  </span>
+                </span>
+                <span className="w-[400px] relative">
+                  <select
+                    value={materias}
+                    onChange={(e) => setMaterias(e.target.value)}
+                    className="outline-none relative w-full h-full py-4 pl-14 rounded-lg bg-zinc-800 text-white"
+                  >
+                    <option disabled value="0">
+                      Seleccione una materia
+                    </option>
+                    <option value="Creditos Libres II">
+                      Creditos Libres II
+                    </option>
+                  </select>
+                  <span>
+                    <Book className="absolute top-[26px] left-4 transform -translate-y-1/2 fill-zinc-400 " />
+                  </span>
+                </span>
+                <span className="w-[400px] relative">
+                  <button
+                    type="submit"
+                    className="bg-yellow-400 w-full rounded-lg"
+                  >
+                    {!formData && (
+                      <h1 className="text-black text-md font-bold py-4">
+                        Actualizar Datos
+                      </h1>
+                    )}
+                    {formData && <Loader className="fill-black" />}
+                  </button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
       )}
     </>
   );

@@ -20,12 +20,16 @@ import {
   estudianteDeleteReducer
 } from './reducers/estudianteReducers';
 
+import { llaveroCreateReducer } from './reducers/llaveroReducers';
+
 const reducer = combineReducers({
   estudianteList: estudianteListReducer,
   estudianteCreate: estudianteCreateReducer,
   estudianteDetails: estudianteDetailsReducer,
   estudianteUpdate: estudianteUpdateReducer,
   estudianteDelete: estudianteDeleteReducer,
+
+  llaveroCreate: llaveroCreateReducer,
 
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,

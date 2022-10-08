@@ -28,7 +28,7 @@ function Classroom() {
       <Routes>
         <Route index element={<ClassroomHomePage />} />
         <Route path="/report" element={<ClassroomReportPage />} />
-        <Route path="/edit/:id" element={<ClassroomEditPage />} />
+        <Route path="/estudiante/:id" element={<ClassroomEditPage />} />
         <Route path="/list" element={<ClassroomListPage />} />
       </Routes>
     </main>
