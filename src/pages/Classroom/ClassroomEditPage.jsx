@@ -22,15 +22,12 @@ import Loader from '../../assets/svg/loader';
 import Add from '../../assets/svg/add';
 import Remove from '../../assets/svg/remove';
 
-// import serial port
-
 function ClassroomRegisterPage() {
   const [formData, setFormData] = useState(false);
 
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [materias, setMaterias] = useState();
-  const [llavero, setLlavero] = useState('');
 
   const dispatch = useDispatch();
 
@@ -58,8 +55,7 @@ function ClassroomRegisterPage() {
         _id: params.id,
         nombre,
         apellido,
-        materias,
-        llavero
+        materias
       })
     );
     setTimeout(() => {
@@ -78,7 +74,6 @@ function ClassroomRegisterPage() {
       setNombre(estudiante.nombre);
       setApellido(estudiante.apellido);
       setMaterias(estudiante.materias);
-      setLlavero(estudiante.llavero);
     }
   }, [dispatch, estudiante, params, successUpdate, navigate]);
 
@@ -133,16 +128,6 @@ function ClassroomRegisterPage() {
             </option>
             <option value="Creditos Libres II">Creditos Libres II</option>
           </select>
-          <label className="text-white text-sm font-bold uppercase tracking-widest">
-            Llavero:
-          </label>
-          <input
-            type="text"
-            value={llavero}
-            onChange={(e) => setLlavero(e.target.value)}
-            placeholder="Nombre del producto"
-            className="outline-none font-bold relative text-black placeholder-zinc-400 dark:placeholder-zinc-400 dark:text-white bg-zinc-200 dark:bg-zinc-800 rounded-md py-3 pl-4 w-full"
-          />
           <span className="col-span-3 grid place-items-center pt-2 justify-center">
             <button
               type="submit"
