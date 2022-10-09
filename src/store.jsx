@@ -20,7 +20,10 @@ import {
   estudianteDeleteReducer
 } from './reducers/estudianteReducers';
 
-import { llaveroCreateReducer } from './reducers/llaveroReducers';
+import {
+  llaveroCreateReducer,
+  llaveroDetailsReducer
+} from './reducers/llaveroReducers';
 
 const reducer = combineReducers({
   estudianteList: estudianteListReducer,
@@ -30,6 +33,7 @@ const reducer = combineReducers({
   estudianteDelete: estudianteDeleteReducer,
 
   llaveroCreate: llaveroCreateReducer,
+  llaveroDetails: llaveroDetailsReducer,
 
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,

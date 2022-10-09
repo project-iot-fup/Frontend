@@ -9,7 +9,10 @@ import {
   LLAVERO_CREATE_REQUEST,
   LLAVERO_CREATE_SUCCESS,
   LLAVERO_CREATE_FAIL,
-  LLAVERO_CREATE_RESET
+  LLAVERO_CREATE_RESET,
+  LLAVERO_DETAILS_REQUEST,
+  LLAVERO_DETAILS_SUCCESS,
+  LLAVERO_DETAILS_FAIL
 } from '../constants/llaveroConstants';
 
 export const llaveroCreateReducer = (state = {}, action) => {
@@ -25,6 +28,25 @@ export const llaveroCreateReducer = (state = {}, action) => {
 
     case LLAVERO_CREATE_RESET:
       return {};
+
+    default:
+      return state;
+  }
+};
+
+export const llaveroDetailsReducer = (
+  state = { llavero: { llavero: {} } },
+  action
+) => {
+  switch (action.type) {
+    case LLAVERO_DETAILS_REQUEST:
+      return { ...state, loading: true };
+
+    case LLAVERO_DETAILS_SUCCESS:
+      return { loading: false, llavero: action.payload };
+
+    case LLAVERO_DETAILS_FAIL:
+      return { loading: false, error: action.payload };
 
     default:
       return state;

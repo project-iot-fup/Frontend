@@ -8,7 +8,10 @@ import {
   LLAVERO_CREATE_REQUEST,
   LLAVERO_CREATE_SUCCESS,
   LLAVERO_CREATE_FAIL,
-  LLAVERO_CREATE_RESET
+  LLAVERO_CREATE_RESET,
+  LLAVERO_DETAILS_REQUEST,
+  LLAVERO_DETAILS_SUCCESS,
+  LLAVERO_DETAILS_FAIL
 } from '../constants/llaveroConstants';
 
 export const createLLavero = () => async (dispatch, getState) => {
@@ -36,6 +39,27 @@ export const createLLavero = () => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: LLAVERO_CREATE_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message
+    });
+  }
+};
+
+export const listallaveroDetails = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: LLAVERO_DETAILS_REQUEST });
+
+    const { data } = await axios.get(`/api/llaveros/${id}`);
+
+    dispatch({
+      type: LLAVERO_DETAILS_SUCCESS,
+      payload: data
+    });
+  } catch (error) {
+    dispatch({
+      type: LLAVERO_DETAILS_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail

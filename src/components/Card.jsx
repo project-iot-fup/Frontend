@@ -18,10 +18,8 @@ function Card() {
         <div>
           {/* <span className="absolute bg-sky-700 py-16 w-full rounded-t-md" /> */}
           <span className="absolute bg-zinc-800 p-2 rounded-xl w-20 mt-2 right-[119px]" />
-          <span className="absolute -rotate-90 bottom-[100px] -left-[60px]">
-            <h1 className="font-mono text-xl font-semi-bold">
-              001268965843644
-            </h1>
+          <span className="absolute -rotate-90 bottom-[50px] -left-[25px]">
+            <h1 className="font-mono text-xl font-semi-bold">C3R9T6H2</h1>
           </span>
         </div>
       </motion.div>

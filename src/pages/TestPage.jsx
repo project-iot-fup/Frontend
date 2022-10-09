@@ -45,7 +45,7 @@ function TestPage() {
     );
     setTimeout(() => {
       setFormData(false);
-    }, 1000);
+    }, 5000);
   };
 
   useEffect(() => {

@@ -18,6 +18,8 @@ import {
 } from '../../actions/estudianteActions';
 import { ESTUDIANTE_UPDATE_RESET } from '../../constants/estudianteConstants';
 
+import Tag from '../../components/Tag';
+
 import Loader from '../../assets/svg/loader';
 import User from '../../assets/svg/user';
 import Book from '../../assets/svg/book';
@@ -69,7 +71,6 @@ function ClassroomRegisterPage() {
 
   useEffect(() => {
     if (successUpdate) {
-      console.log('successUpdate');
       dispatch({ type: ESTUDIANTE_UPDATE_RESET });
       navigate('/classroom/list');
     } else if (!estudiante.nombre || estudiante._id !== Number(params.id)) {
@@ -81,6 +82,8 @@ function ClassroomRegisterPage() {
       setCedula(estudiante.cedula);
     }
   }, [dispatch, estudiante, params, successUpdate, navigate]);
+
+  console.log(estudiante);
 
   return (
     <>
@@ -98,6 +101,9 @@ function ClassroomRegisterPage() {
             <h1 className="text-5xl pt-12 pb-8 font-black text-center text-white leading-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-100">
               Editar Estudiante
             </h1>
+            <div className="flex justify-center relative items-center">
+              <Tag estudiante={estudiante} _id={params.id} />
+            </div>
             <form onSubmit={submitHandler}>
               <div className="h-[400px] flex justify-center flex-col gap-4 items-center w-[650px]">
                 <span className="w-[400px] relative">
