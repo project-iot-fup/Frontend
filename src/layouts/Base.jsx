@@ -10,12 +10,16 @@ import HomePage from '../pages/HomePage';
 import TestPage from '../pages/TestPage';
 
 import NotFoundPage from '../pages/NotFoundPage';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function Base() {
   return (
-    <main>
+    <main className="bg-zinc-800 h-full">
       <Router>
+        <Header />
         <Routes>
+          {/* header */}
           {/* home */}
           <Route path="/" element={<HomePage />} />
           {/* not found */}
@@ -27,6 +31,7 @@ function Base() {
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />
         </Routes>
+        <Footer />
       </Router>
     </main>
   );

@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import Loader from '../assets/svg/loader';
+import Barcode from '../assets/svg/barcode';
 
 import { createLLavero, listallaveroDetails } from '../actions/llaveroActions';
 
@@ -28,12 +29,12 @@ function Tag(props) {
   const dispatch = useDispatch();
 
   const llaveroDetails = useSelector((state) => state.llaveroDetails);
-  const { error, loading, llavero } = llaveroDetails;
+  const { llavero } = llaveroDetails;
 
   const llaveroCreate = useSelector((state) => state.llaveroCreate);
   const navigate = useNavigate();
   const {
-    // error: errorUpdate,
+    error: errorCreate,
     // loading: loadingUpdate,
     success: successCreate
   } = llaveroCreate;
@@ -49,41 +50,58 @@ function Tag(props) {
     );
     setTimeout(() => {
       setFormData(false);
-    }, 10000);
+    }, 3000);
   };
 
   useEffect(() => {
+    if (errorCreate) {
+      console.log('error');
+    }
+
     if (successCreate) {
-      navigate(`/classroom/estudiante/${props._id}`);
+      navigate(`/classroom/list`);
     } else if (
       !props.estudiante.nombre ||
       props.estudiante._id !== Number(props._id)
     ) {
       dispatch(listallaveroDetails(props._id));
     }
-  }, [dispatch, llavero, successCreate, navigate, props.estudiante, props._id]);
+  }, [
+    dispatch,
+    llavero,
+    successCreate,
+    errorCreate,
+    navigate,
+    props.estudiante,
+    props._id
+  ]);
 
   return (
     <>
-      {/* <form onSubmit={submitHandler}>
-        <button type="submit" className="bg-lime-500 rounded-lg w-[400px] ">
-          {!formData && (
-            <h1 className="text-black text-md font-bold py-2">Crear Tag</h1>
-          )}
-          {formData && <Loader className="fill-black" />}
-        </button>
-      </form> */}
       {llavero[0] === undefined ? (
         <form onSubmit={submitHandler}>
-          <button type="submit" className="bg-lime-500 rounded-lg w-[400px] ">
+          <button
+            type="submit"
+            className=" bg-black rounded-md shadow-md shadow-black"
+          >
             {!formData && (
-              <h1 className="text-black text-md font-bold py-2">Crear Tag</h1>
+              <span className="flex flex-row gap-2 items-center py-4 px-6">
+                <Barcode className="fill-white" />
+                <h1 className="text-xl font-bold text-white">Crear Tag</h1>
+              </span>
             )}
-            {formData && <Loader className="fill-black" />}
+            {formData && <Loader className="fill-white w-44" />}
           </button>
         </form>
       ) : (
-        <div></div>
+        <div>
+          <span className="flex flex-row gap-2 items-center">
+            <Barcode className="fill-white" />
+            <h1 className="text-xl font-bold text-white underline">
+              {llavero[0].tag}
+            </h1>
+          </span>
+        </div>
       )}
     </>
   );

@@ -9,6 +9,8 @@ import ClassroomHomePage from '../pages/Classroom/ClassroomHomePage';
 import ClassroomEditPage from '../pages/Classroom/ClassroomEditPage';
 import ClassroomListPage from '../pages/Classroom/ClassroomListPage';
 
+import NotFoundPage from '../pages/NotFoundPage';
+
 function Classroom() {
   const navigate = useNavigate();
 
@@ -22,14 +24,12 @@ function Classroom() {
   }, [navigate, userInfo]);
   return (
     <main className="bg-zinc-800 h-full">
-      <div className="flex justify-center items-center">
-        <div className="bg-zinc-900 w-[900px] rounded-b-lg">s</div>
-      </div>
       <Routes>
         <Route index element={<ClassroomHomePage />} />
         <Route path="/report" element={<ClassroomReportPage />} />
         <Route path="/estudiante/:id" element={<ClassroomEditPage />} />
         <Route path="/list" element={<ClassroomListPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main>
   );

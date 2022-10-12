@@ -7,7 +7,7 @@ import React from 'react';
 function Report() {
   const date = new Date();
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen pt-56">
       <div className="bg-zinc-900 rounded-lg w-[700px] h-[800px] p-6 shadow-lg shadow-zinc-900">
         <div className="flex justify-between items-start">
           <span className="flex flex-col gap-4 w-96">
