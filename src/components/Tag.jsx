@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -11,11 +12,16 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 
 import { useNavigate } from 'react-router-dom';
 
+import Message from './Message';
+
 import Loader from '../assets/svg/loader';
 import Barcode from '../assets/svg/barcode';
+import Warning from '../assets/svg/warning';
+import Check from '../assets/svg/check';
 
 import { createLLavero, listallaveroDetails } from '../actions/llaveroActions';
 
@@ -35,12 +41,11 @@ function Tag(props) {
   const navigate = useNavigate();
   const {
     error: errorCreate,
-    // loading: loadingUpdate,
+    loading: loadingUpdate,
     success: successCreate
   } = llaveroCreate;
 
   const submitHandler = (e) => {
-    console.log('submitHandler');
     e.preventDefault();
     setFormData(true);
     dispatch(
@@ -54,12 +59,12 @@ function Tag(props) {
   };
 
   useEffect(() => {
-    if (errorCreate) {
-      console.log('error');
+    if (loadingUpdate) {
+      console.log('loadingUpdate');
     }
 
     if (successCreate) {
-      navigate(`/classroom/list`);
+      dispatch(listallaveroDetails(props.estudiante._id));
     } else if (
       !props.estudiante.nombre ||
       props.estudiante._id !== Number(props._id)
@@ -69,6 +74,7 @@ function Tag(props) {
   }, [
     dispatch,
     llavero,
+    loadingUpdate,
     successCreate,
     errorCreate,
     navigate,
@@ -78,6 +84,36 @@ function Tag(props) {
 
   return (
     <>
+      {errorCreate && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <Message
+            message="Registro Fallido"
+            description="Vuelva a pasar el tag por el lector"
+            className="text-yellow-400"
+            icon={<Warning className="fill-yellow-400" />}
+          />
+        </motion.div>
+      )}
+      {successCreate && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <Message
+            message="Registro exitoso"
+            description="Se ha creado el tag con éxito"
+            className="text-green-500"
+            icon={<Check className="fill-green-500" />}
+          />
+        </motion.div>
+      )}
       {llavero[0] === undefined ? (
         <form onSubmit={submitHandler}>
           <button
@@ -85,9 +121,9 @@ function Tag(props) {
             className=" bg-black rounded-md shadow-md shadow-black"
           >
             {!formData && (
-              <span className="flex flex-row gap-2 items-center py-4 px-6">
+              <span className="flex flex-row gap-2 items-center py-2 px-6">
                 <Barcode className="fill-white" />
-                <h1 className="text-xl font-bold text-white">Crear Tag</h1>
+                <h1 className="text-lg font-bold text-white">Crear Tag</h1>
               </span>
             )}
             {formData && <Loader className="fill-white w-44" />}

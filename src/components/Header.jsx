@@ -1,13 +1,33 @@
+/* eslint-disable react/button-has-type */
 import React from 'react';
 // import School from '../assets/svg/school';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+// icons
 import School from '../assets/svg/school';
 import UserCircle from '../assets/svg/userCircle';
 import Logout from '../assets/svg/logout';
+import Help from '../assets/svg/help';
+
+import { logout } from '../actions/userActions';
 
 import DarkModeSwitch from './DarkModeSwitch';
 
 function Header() {
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    if (userInfo) {
+      navigate('/auth/login');
+    }
+  };
   return (
     <section className="z-50 w-full bg-zinc-900 absolute py-4">
       <div className=" container mx-auto px-56 grid grid-cols-3 gap-0">
@@ -18,9 +38,21 @@ function Header() {
         </div>
         <div className="col-span-2 flex flex-row items-center justify-end gap-4">
           <DarkModeSwitch />
-          <School className="fill-white" />
-          <UserCircle className="fill-white" />
-          <Logout className="fill-white" />
+          {userInfo ? (
+            <>
+              <Link to="/classroom">
+                <School className="fill-white" />
+              </Link>
+              <button onClick={logoutHandler}>
+                <Logout className="fill-white" />
+              </button>
+            </>
+          ) : (
+            <Link to="/auth/login">
+              <UserCircle className="fill-white" />
+            </Link>
+          )}
+          <Help className="fill-white" />
         </div>
       </div>
     </section>
