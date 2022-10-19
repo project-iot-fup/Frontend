@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-underscore-dangle */
@@ -5,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { getUserDetails } from '../actions/userActions';
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
@@ -30,6 +31,8 @@ function Dashboard() {
 
   const date = new Date();
 
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   // get date in format 12 december 2021
@@ -40,13 +43,14 @@ function Dashboard() {
   useEffect(() => {
     if (!userInfo) {
       // history.push('/login');
+      navigate('/login');
     } else if (!user || !user.name || user._id !== userInfo._id) {
       dispatch({ type: USER_UPDATE_PROFILE_RESET });
       dispatch(getUserDetails('profile'));
     } else {
       setName(user.name);
     }
-  }, [dispatch, userInfo, user]);
+  }, [dispatch, userInfo, user, navigate]);
 
   return (
     <section className="bg-zinc-900 h-[500px] p-8 rounded-lg shadow-md shadow-zinc-900">
@@ -57,7 +61,7 @@ function Dashboard() {
         {date.getHours() >= 12 && date.getHours() < 18 && 'Buenas tardes,'}
         {/* good night */}
         {date.getHours() >= 18 && 'Buenas noches,'}
-        <span className="text-yellow-400"> {name}!</span>
+        <span className="text-yellow-400 capitalize"> {name}!</span>
       </h1>
       <h1 className="text-zinc-400 font-bold text-md hover:underline cursor-pointer">{`${day} de ${month} ${year}`}</h1>
       <hr className="border-zinc-500 my-4 rounded-full" />
@@ -70,7 +74,7 @@ function Dashboard() {
             className={
               activeStatus === 1
                 ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
-                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white transition delay-100 duration-300 cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
+                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white  cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
             }
           >
             <Inbox />
@@ -86,25 +90,27 @@ function Dashboard() {
             className={
               activeStatus === 2
                 ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
-                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white transition delay-100 duration-300 cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
+                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white  cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
             }
           >
             <UserBox />
             <h1 className="font-bold text-md tracking-normal">Mi Cuenta</h1>
           </button>
         </Link>
-        <button
-          type="button"
-          onClick={() => setActiveStatus(3)}
-          className={
-            activeStatus === 3
-              ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
-              : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white transition delay-100 duration-300 cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
-          }
-        >
-          <Calendar />
-          <h1 className="font-bold text-md tracking-normal">Mis Clases</h1>
-        </button>
+        <Link to="/classroom/classes">
+          <button
+            type="button"
+            onClick={() => setActiveStatus(3)}
+            className={
+              activeStatus === 3
+                ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
+                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
+            }
+          >
+            <Calendar />
+            <h1 className="font-bold text-md tracking-normal">Mis Clases</h1>
+          </button>
+        </Link>
         <Link to="/classroom/reports">
           <button
             type="button"
@@ -112,7 +118,7 @@ function Dashboard() {
             className={
               activeStatus === 4
                 ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
-                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white transition delay-100 duration-300 cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
+                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white  cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
             }
           >
             <Reports />
@@ -125,7 +131,7 @@ function Dashboard() {
           className={
             activeStatus === 5
               ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
-              : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white transition delay-100 duration-300 cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
+              : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white  cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
           }
         >
           <Books />
@@ -137,7 +143,7 @@ function Dashboard() {
           className={
             activeStatus === 6
               ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
-              : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white transition delay-100 duration-300 cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
+              : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white  cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
           }
         >
           <Chart />

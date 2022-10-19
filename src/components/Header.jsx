@@ -8,11 +8,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import School from '../assets/svg/school';
 import UserCircle from '../assets/svg/userCircle';
 import Logout from '../assets/svg/logout';
-import Help from '../assets/svg/help';
+// import Help from '../assets/svg/help';
+
+import Notification from './Notification';
 
 import { logout } from '../actions/userActions';
 
 import DarkModeSwitch from './DarkModeSwitch';
+import Faq from './Faq';
 
 function Header() {
   const userLogin = useSelector((state) => state.userLogin);
@@ -43,6 +46,7 @@ function Header() {
               <Link to="/classroom">
                 <School className="fill-white" />
               </Link>
+              <Notification className="absolute z-10 -top-[10px] rotate-180 left-[155px]" />
               <button onClick={logoutHandler}>
                 <Logout className="fill-white" />
               </button>
@@ -52,7 +56,7 @@ function Header() {
               <UserCircle className="fill-white" />
             </Link>
           )}
-          <Help className="fill-white" />
+          <Faq className="absolute z-10 -top-[10px] rotate-180 left-[200px]" />
         </div>
       </div>
     </section>

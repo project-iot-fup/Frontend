@@ -87,7 +87,11 @@ export const register = (name, email, password) => async (dispatch) => {
 
     const { data } = await axios.post(
       '/api/users/register/',
-      { name: name, email: email, password: password },
+      {
+        name: name,
+        email: email,
+        password: password
+      },
       config
     );
 

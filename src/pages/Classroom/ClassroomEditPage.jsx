@@ -58,7 +58,7 @@ function ClassroomRegisterPage() {
   } = estudianteUpdate;
 
   const submitHandler = (e) => {
-    console.log('submitHandler');
+    // console.log('submitHandler');
     e.preventDefault();
     setFormData(true);
     dispatch(
@@ -74,10 +74,16 @@ function ClassroomRegisterPage() {
     }, 1000);
   };
 
+  const handleClose = () => {
+    setShow(false);
+    console.log('handleClose');
+  };
+
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: ESTUDIANTE_UPDATE_RESET });
       setShow(true);
+      console.log('successUpdate');
     } else if (!estudiante.nombre || estudiante._id !== Number(params.id)) {
       dispatch(listaEstudianteDetails(params.id));
     } else {
@@ -100,6 +106,7 @@ function ClassroomRegisterPage() {
           transition={{ duration: 1 }}
         >
           <Message
+            onClick={handleClose}
             message="Estudiante actualizado"
             description="Se ha actualizado correctamente el estudiante"
             className="text-green-500"

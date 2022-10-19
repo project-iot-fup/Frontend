@@ -28,9 +28,9 @@ import { createLLavero, listallaveroDetails } from '../actions/llaveroActions';
 function Tag(props) {
   const [formData, setFormData] = useState(false);
 
-  const [estudiante, setEstudiante] = useState('');
-  const [tagStatus, setTagStatus] = useState(false);
   const [tag, setTag] = useState('');
+  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -38,52 +38,72 @@ function Tag(props) {
   const { llavero } = llaveroDetails;
 
   const llaveroCreate = useSelector((state) => state.llaveroCreate);
-  const navigate = useNavigate();
+
+  // console.log(props.estudianteId);
+  // console.log(userId);
+  // console.log(props.llavero);
+
   const {
     error: errorCreate,
     loading: loadingUpdate,
     success: successCreate
   } = llaveroCreate;
 
+  const handleClose = () => {
+    setShow(false);
+    console.log('handleClose');
+  };
+
   const submitHandler = (e) => {
+    console.log('submit');
     e.preventDefault();
     setFormData(true);
-    dispatch(
-      createLLavero({
-        estudiantes: props.estudiante._id
-      })
-    );
+    dispatch(createLLavero());
     setTimeout(() => {
       setFormData(false);
     }, 3000);
   };
 
   useEffect(() => {
-    if (loadingUpdate) {
-      console.log('loadingUpdate');
-    }
-
     if (successCreate) {
-      dispatch(listallaveroDetails(props.estudiante._id));
-    } else if (
-      !props.estudiante.nombre ||
-      props.estudiante._id !== Number(props._id)
-    ) {
-      dispatch(listallaveroDetails(props._id));
+      dispatch(listallaveroDetails(props.estudianteId));
     }
-  }, [
-    dispatch,
-    llavero,
-    loadingUpdate,
-    successCreate,
-    errorCreate,
-    navigate,
-    props.estudiante,
-    props._id
-  ]);
+  }, [dispatch, props.estudianteId, successCreate]);
 
   return (
     <>
+      <div className="relative">
+        {props.llavero[0] === undefined ? (
+          <span className="flex flex-row gap-12 items-center">
+            <h1 className="text-white font-normal text-sm w-40">Tag:</h1>
+            <button
+              type="button"
+              onClick={submitHandler}
+              className="w-56 bg-black rounded-md shadow-md shadow-black"
+            >
+              {!formData && (
+                <span className="flex flex-row gap-2 items-center py-2 px-6">
+                  <Barcode className="fill-white" />
+                  <h1 className="text-sm font-normal text-white">
+                    Generar Tag
+                  </h1>
+                </span>
+              )}
+              {formData && <Loader className="fill-white w-44" />}
+            </button>
+          </span>
+        ) : (
+          <>
+            <span className="flex flex-row gap-12 items-center">
+              <h1 className="text-white font-normal text-sm w-40">Tag:</h1>
+              <span className="flex flex-row items-center gap-2 w-56 bg-zinc-800 font-normal text-sm rounded-md py-3 px-4 outline-none">
+                <Barcode className="fill-zinc-400" />
+                <h1 className="text-zinc-400">{props.llavero[0].tag}</h1>
+              </span>
+            </span>
+          </>
+        )}
+      </div>
       {errorCreate && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -92,6 +112,7 @@ function Tag(props) {
           transition={{ duration: 1 }}
         >
           <Message
+            onClick={handleClose}
             message="Registro Fallido"
             description="Vuelva a pasar el tag por el lector"
             className="text-yellow-400"
@@ -107,37 +128,13 @@ function Tag(props) {
           transition={{ duration: 1 }}
         >
           <Message
+            onClick={handleClose}
             message="Registro exitoso"
             description="Se ha creado el tag con éxito"
             className="text-green-500"
             icon={<Check className="fill-green-500" />}
           />
         </motion.div>
-      )}
-      {llavero[0] === undefined ? (
-        <form onSubmit={submitHandler}>
-          <button
-            type="submit"
-            className=" bg-black rounded-md shadow-md shadow-black"
-          >
-            {!formData && (
-              <span className="flex flex-row gap-2 items-center py-2 px-6">
-                <Barcode className="fill-white" />
-                <h1 className="text-lg font-bold text-white">Crear Tag</h1>
-              </span>
-            )}
-            {formData && <Loader className="fill-white w-44" />}
-          </button>
-        </form>
-      ) : (
-        <div>
-          <span className="flex flex-row gap-2 items-center">
-            <Barcode className="fill-white" />
-            <h1 className="text-xl font-bold text-white underline">
-              {llavero[0].tag}
-            </h1>
-          </span>
-        </div>
       )}
     </>
   );

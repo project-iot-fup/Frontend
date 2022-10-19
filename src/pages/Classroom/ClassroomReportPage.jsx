@@ -6,7 +6,7 @@ function Report() {
   return (
     <>
       <Helmet>
-        <title>Report</title>
+        <title>Reportes</title>
       </Helmet>
 
       <div className="flex justify-center items-center h-full">

@@ -35,7 +35,7 @@ function LoginPage() {
   return (
     <>
       <Helmet>
-        <title>Login</title>
+        <title>Iniciar Sesión</title>
       </Helmet>
 
       <section className="bg-zinc-800">

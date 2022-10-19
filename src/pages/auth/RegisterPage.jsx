@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-shadow */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable no-unused-vars */
@@ -16,6 +17,7 @@ import Password from '../../assets/svg/password';
 import Loader from '../../assets/svg/loader';
 
 import { register } from '../../actions/userActions';
+import { createEstudiante } from '../../actions/estudianteActions';
 
 function RegisterPage() {
   const dispatch = useDispatch();
@@ -27,16 +29,27 @@ function RegisterPage() {
   const userRegister = useSelector((state) => state.userRegister);
   const { error, userInfo } = userRegister;
 
+  const estudianteCreate = useSelector((state) => state.estudianteCreate);
+
+  const {
+    error: errorCreate,
+    loading: loadingUpdate,
+    success: successCreate
+  } = estudianteCreate;
+
   useEffect(() => {
     if (userInfo) {
-      navigate('/');
+      // dispatch estudianteCreate
+      // dispatch(createEstudiante());
+      console.log(userInfo);
+      navigate('/classroom');
     }
-  }, [userInfo, navigate]);
+  }, [userInfo, navigate, dispatch, successCreate]);
 
   return (
     <>
       <Helmet>
-        <title>Register</title>
+        <title>Crear Cuenta</title>
       </Helmet>
 
       <section className="bg-zinc-800">
@@ -51,15 +64,17 @@ function RegisterPage() {
               </p>
               {error && (
                 <p className="text-lg font-normal text-center text-red-500 ">
-                  No se encontró ninguna cuenta activa con las credenciales
-                  dadas
+                  {/* El correo con el que intentas registrarte ya existe */}
+                  {error}
                 </p>
               )}
             </div>
             <Formik
               initialValues={{
-                username: '',
-                password: ''
+                name: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
               }}
               validate={(res) => {
                 const error = {};

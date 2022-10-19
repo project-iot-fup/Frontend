@@ -7,6 +7,8 @@ import ClassroomReportPage from '../pages/Classroom/ClassroomReportPage';
 import ClassroomHomePage from '../pages/Classroom/ClassroomHomePage';
 import ClassroomEditPage from '../pages/Classroom/ClassroomEditPage';
 import ClassroomListPage from '../pages/Classroom/ClassroomListPage';
+import ClassroomClassesPage from '../pages/Classroom/ClassroomClassesPage';
+import ClassroomProfilePage from '../pages/Classroom/ClassroomProfilePage';
 
 import NotFoundPage from '../pages/NotFoundPage';
 import Dashboard from '../components/Dashboard';
@@ -35,8 +37,8 @@ function Classroom() {
     }
   }, [navigate, userInfo]);
   return (
-    <main className="bg-zinc-800 h-full container mx-auto">
-      <section className="grid grid-cols-12 gap-12 pt-28 pb-28">
+    <main className="bg-zinc-800 h-full container mx-auto mb-56">
+      <section className="grid grid-cols-12 gap-12 pt-32">
         <div className="col-span-12 lg:col-span-3 flex flex-col gap-8">
           <Dashboard />
           <button type="button" onClick={logoutHandler}>
@@ -54,6 +56,8 @@ function Classroom() {
             <Route path="/reports" element={<ClassroomReportPage />} />
             <Route path="/estudiante/:id" element={<ClassroomEditPage />} />
             <Route path="/list" element={<ClassroomListPage />} />
+            <Route path="/classes" element={<ClassroomClassesPage />} />
+            <Route path="/profile" element={<ClassroomProfilePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>

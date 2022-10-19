@@ -8,7 +8,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Home</title>
+        <title>Inicio</title>
       </Helmet>
 
       <div className="bg-zinc-900 scroll-smooth">

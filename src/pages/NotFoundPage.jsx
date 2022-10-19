@@ -5,7 +5,7 @@ function NotFoundPage() {
   return (
     <>
       <Helmet>
-        <title>Not Found</title>
+        <title>404</title>
       </Helmet>
 
       <section className="h-screen flex justify-center items-center">

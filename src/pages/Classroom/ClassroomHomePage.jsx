@@ -11,7 +11,7 @@ function ClassroomHomePage() {
         <title>Panel Administrativo</title>
       </Helmet>
 
-      <section className="">
+      <section className="w-full h-full bg-zinc-900 shadow-md shadow-zinc-900 rounded-md overflow-hidden relative">
         <h1>Classroom Home Page</h1>
         <Graphs />
       </section>
