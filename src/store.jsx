@@ -25,6 +25,11 @@ import {
   llaveroDetailsReducer
 } from './reducers/llaveroReducers';
 
+import {
+  asistenciaViewReducer,
+  salaDetailsReducer
+} from './reducers/asistenciaReducers';
+
 const reducer = combineReducers({
   estudianteList: estudianteListReducer,
   estudianteCreate: estudianteCreateReducer,
@@ -34,6 +39,9 @@ const reducer = combineReducers({
 
   llaveroCreate: llaveroCreateReducer,
   llaveroDetails: llaveroDetailsReducer,
+
+  asistenciaView: asistenciaViewReducer,
+  salaDetail: salaDetailsReducer,
 
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,

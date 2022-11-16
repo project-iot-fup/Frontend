@@ -16,7 +16,7 @@ function Faq(props) {
 
   const llaveroDetails = useSelector((state) => state.llaveroDetails);
   const { llavero } = llaveroDetails;
-  console.log(llavero);
+  // console.log(llavero);
 
   return (
     <>

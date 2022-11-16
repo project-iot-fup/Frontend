@@ -111,7 +111,7 @@ function Dashboard() {
             <h1 className="font-bold text-md tracking-normal">Mis Clases</h1>
           </button>
         </Link>
-        <Link to="/classroom/reports">
+        <Link to="/classroom/reportes">
           <button
             type="button"
             onClick={() => setActiveStatus(4)}

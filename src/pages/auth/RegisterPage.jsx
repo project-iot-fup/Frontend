@@ -17,7 +17,6 @@ import Password from '../../assets/svg/password';
 import Loader from '../../assets/svg/loader';
 
 import { register } from '../../actions/userActions';
-import { createEstudiante } from '../../actions/estudianteActions';
 
 function RegisterPage() {
   const dispatch = useDispatch();
@@ -29,14 +28,6 @@ function RegisterPage() {
   const userRegister = useSelector((state) => state.userRegister);
   const { error, userInfo } = userRegister;
 
-  const estudianteCreate = useSelector((state) => state.estudianteCreate);
-
-  const {
-    error: errorCreate,
-    loading: loadingUpdate,
-    success: successCreate
-  } = estudianteCreate;
-
   useEffect(() => {
     if (userInfo) {
       // dispatch estudianteCreate
@@ -44,7 +35,7 @@ function RegisterPage() {
       console.log(userInfo);
       navigate('/classroom');
     }
-  }, [userInfo, navigate, dispatch, successCreate]);
+  }, [userInfo, navigate]);
 
   return (
     <>

@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ClassroomReportPage from '../pages/Classroom/ClassroomReportPage';
+import ClassroomSalaPage from '../pages/Classroom/ClassroomSalaPage';
 import ClassroomHomePage from '../pages/Classroom/ClassroomHomePage';
 import ClassroomEditPage from '../pages/Classroom/ClassroomEditPage';
 import ClassroomListPage from '../pages/Classroom/ClassroomListPage';
@@ -53,7 +54,8 @@ function Classroom() {
         <div className="col-span-12 lg:col-span-9">
           <Routes>
             <Route index element={<ClassroomHomePage />} />
-            <Route path="/reports" element={<ClassroomReportPage />} />
+            <Route path="/reportes" element={<ClassroomReportPage />} />
+            <Route path="/reporte/:id" element={<ClassroomSalaPage />} />
             <Route path="/estudiante/:id" element={<ClassroomEditPage />} />
             <Route path="/list" element={<ClassroomListPage />} />
             <Route path="/classes" element={<ClassroomClassesPage />} />
