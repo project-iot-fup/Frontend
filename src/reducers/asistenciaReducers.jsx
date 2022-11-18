@@ -5,43 +5,46 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
-
 import {
-  SALA_VIEW_REQUEST,
-  SALA_VIEW_SUCCESS,
-  SALA_VIEW_FAIL,
-  SALA_VIEW_RESET,
+  SALA_LIST_REQUEST,
+  SALA_LIST_SUCCESS,
+  SALA_LIST_FAIL,
   SALA_DETAILS_REQUEST,
   SALA_DETAILS_SUCCESS,
   SALA_DETAILS_FAIL
 } from '../constants/asistenciaConstants';
 
-export const asistenciaViewReducer = (state = { asistencias: [] }, action) => {
+export const salaListReducer = (state = { salas: [] }, action) => {
   switch (action.type) {
-    case SALA_VIEW_REQUEST:
-      return { loading: true };
+    case SALA_LIST_REQUEST:
+      return { loading: true, salas: [] };
 
-    case SALA_VIEW_SUCCESS:
-      return { loading: false, asistencias: action.payload };
+    case SALA_LIST_SUCCESS:
+      return {
+        loading: false,
+        salas: action.payload.salas,
+        page: action.payload.page,
+        pages: action.payload.pages
+      };
 
-    case SALA_VIEW_FAIL:
+    case SALA_LIST_FAIL:
       return { loading: false, error: action.payload };
-
-    case SALA_VIEW_RESET:
-      return {};
 
     default:
       return state;
   }
 };
 
-export const salaDetailsReducer = (state = { asistencia: [] }, action) => {
+export const salaDetailsReducer = (
+  state = { sala: { materia: {}, asistencia: [] } },
+  action
+) => {
   switch (action.type) {
     case SALA_DETAILS_REQUEST:
-      return { ...state, loading: true };
+      return { loading: true, ...state };
 
     case SALA_DETAILS_SUCCESS:
-      return { loading: false, asistencia: action.payload };
+      return { loading: false, sala: action.payload };
 
     case SALA_DETAILS_FAIL:
       return { loading: false, error: action.payload };

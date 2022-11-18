@@ -13,11 +13,9 @@ import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
 
 // icons
 import UserBox from '../assets/svg/userBox';
-import Calendar from '../assets/svg/calendar';
-import Books from '../assets/svg/books';
+// import Books from '../assets/svg/books';
 import Reports from '../assets/svg/reports';
 import Chart from '../assets/svg/chart';
-import Inbox from '../assets/svg/inbox';
 
 function Dashboard() {
   const [name, setName] = useState('');
@@ -53,7 +51,7 @@ function Dashboard() {
   }, [dispatch, userInfo, user, navigate]);
 
   return (
-    <section className="bg-zinc-900 h-[500px] p-8 rounded-lg shadow-md shadow-zinc-900">
+    <section className="bg-zinc-900 h-[350px] p-8 rounded-lg shadow-md shadow-zinc-900">
       <h1 className="text-white font-bold text-xl">
         {/* good morning */}
         {date.getHours() < 12 && 'Buenos días,'}
@@ -67,22 +65,6 @@ function Dashboard() {
       <hr className="border-zinc-500 my-4 rounded-full" />
 
       <div className="flex flex-col gap-4">
-        <Link to="/classroom">
-          <button
-            type="button"
-            onClick={() => setActiveStatus(1)}
-            className={
-              activeStatus === 1
-                ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
-                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white  cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
-            }
-          >
-            <Inbox />
-            <h1 className="font-bold text-md tracking-normal">
-              Panel Administrativo
-            </h1>
-          </button>
-        </Link>
         <Link to="/classroom/profile">
           <button
             type="button"
@@ -97,21 +79,8 @@ function Dashboard() {
             <h1 className="font-bold text-md tracking-normal">Mi Cuenta</h1>
           </button>
         </Link>
-        <Link to="/classroom/classes">
-          <button
-            type="button"
-            onClick={() => setActiveStatus(3)}
-            className={
-              activeStatus === 3
-                ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
-                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
-            }
-          >
-            <Calendar />
-            <h1 className="font-bold text-md tracking-normal">Mis Clases</h1>
-          </button>
-        </Link>
-        <Link to="/classroom/reportes">
+
+        <Link to="/classroom">
           <button
             type="button"
             onClick={() => setActiveStatus(4)}
@@ -122,10 +91,10 @@ function Dashboard() {
             }
           >
             <Reports />
-            <h1 className="font-bold text-md tracking-normal">Mis Reportes</h1>
+            <h1 className="font-bold text-md tracking-normal">Mis Salas</h1>
           </button>
         </Link>
-        <button
+        {/* <button
           type="button"
           onClick={() => setActiveStatus(5)}
           className={
@@ -136,19 +105,21 @@ function Dashboard() {
         >
           <Books />
           <h1 className="font-bold text-md tracking-normal">Mis Materias</h1>
-        </button>
-        <button
-          type="button"
-          onClick={() => setActiveStatus(6)}
-          className={
-            activeStatus === 6
-              ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
-              : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white  cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
-          }
-        >
-          <Chart />
-          <h1 className="font-bold text-md tracking-normal">Estadísticas</h1>
-        </button>
+        </button> */}
+        <Link to="/classroom/stadistic">
+          <button
+            type="button"
+            onClick={() => setActiveStatus(6)}
+            className={
+              activeStatus === 6
+                ? 'bg-yellow-400 p-2 rounded-sm flex flex-row cursor-pointer items-center gap-2 w-full'
+                : 'hover:bg-yellow-400 hover:text-black fill-white hover:fill-black text-white  cursor-pointer p-2 rounded-sm flex flex-row items-center gap-2 w-full'
+            }
+          >
+            <Chart />
+            <h1 className="font-bold text-md tracking-normal">Estadísticas</h1>
+          </button>
+        </Link>
       </div>
     </section>
   );

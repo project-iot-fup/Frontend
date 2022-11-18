@@ -194,7 +194,7 @@ function ClassroomProfilePage() {
           />
         </motion.div>
       )}
-      <section className="w-full h-[38em] lg:h-full bg-zinc-900 shadow-md shadow-zinc-900 rounded-md overflow-hidden relative">
+      <section className="w-full h-[600px] bg-zinc-900 shadow-md shadow-zinc-900 rounded-md overflow-hidden relative">
         <div className="bg-zinc-700 h-48 relative" />
         <form onSubmit={submitHandler}>
           <div className="grid grid-cols-4 w-full absolute top-[120px] p-8">

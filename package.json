@@ -6,6 +6,7 @@
   "dependencies": {
     "@splidejs/react-splide": "^0.7.8",
     "@splidejs/splide": "^4.0.7",
+    "@tremor/react": "^1.1.4",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "framer-motion": "^6.5.1",

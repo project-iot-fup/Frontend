@@ -124,8 +124,8 @@ function ClassroomRegisterPage() {
         </div>
       ) : (
         <>
-          <div className="flex justify-center items-center h-full">
-            <div className="bg-zinc-900 rounded-lg w-[700px] h-[700px] p-6 shadow-lg shadow-zinc-900">
+          <div className="flex justify-center items-center">
+            <div className="bg-zinc-900 rounded-lg p-6 shadow-lg shadow-zinc-900">
               <h1 className="text-5xl pt-12 pb-8 font-black text-center text-white leading-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-100">
                 Editar Estudiante
               </h1>

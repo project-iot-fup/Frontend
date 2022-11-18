@@ -26,7 +26,7 @@ import {
 } from './reducers/llaveroReducers';
 
 import {
-  asistenciaViewReducer,
+  salaListReducer,
   salaDetailsReducer
 } from './reducers/asistenciaReducers';
 
@@ -40,8 +40,8 @@ const reducer = combineReducers({
   llaveroCreate: llaveroCreateReducer,
   llaveroDetails: llaveroDetailsReducer,
 
-  asistenciaView: asistenciaViewReducer,
-  salaDetail: salaDetailsReducer,
+  salaList: salaListReducer,
+  salaDetails: salaDetailsReducer,
 
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
